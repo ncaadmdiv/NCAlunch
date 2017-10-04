@@ -1,7 +1,44 @@
 <!DOCTYPE html>
 <html>
+		<head>
+		  <meta charset="utf-8">
+		  <title>DinBenDon</title>
+		  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		  <script type="text/javascript">
+			  $(function() {
+			  var $a1 = $('#a1'),
+			    $a2 = $('#a2'),
+			    $a3 = $('#a3'),
+			    $a4 = $('#a4'),
+			    $a5 = $('#a5'),
+			    $a6 = $('#a6'),
+				$a7 = $('#a7'),	    
+			    $b = $('#b'),
+			    a = {};
+			    $b.on('click', function() {
+			    a = {
+			        data: $a1.val()+','+ $a2.val()+','+$a3.val()+','+$a4.val()+','+$a5.val()+','+$a6.val()+','+$a7.val(),
+			        sheetUrl: 'https://docs.google.com/spreadsheets/d/1upOyf5gQcjuKVtBDNnOcvmlHSlwUoQ7RrcbCdtphp3I/edit#gid=0',
+			        sheetTag: '工作表1'
+			    };
+			    console.log(a);
+			    $.get('https://script.google.com/macros/s/AKfycbzAV9jLIx_mqyV25XsdDq3rS8iYCD7Wit6eQ610_BTgDHdOVHE/exec', a);
+			  });
+			});
+			</script>
+		</head>
 <body>
-<h1>Hello World</h1>
+<h1>役政署訂餐系統</h1>
 <p>I'm hosted with GitHub Pages.</p>
+  <img src="https://cf-niniblue.zi.org.tw/wp-content/uploads/2017/07/1500561544-406c2376930633c95fd4b5fb4e4c7fd0.jpg"></img></br>
+  廠商：<input id="a1"><br/> 
+  樣式：<input id="a2"><br/>
+  數量：<input id="a3"><br/>
+  單價：<input id="a4"><br/>
+  科室：<input id="a5"><br/>
+  訂購人：<input id="a6"><br/>
+  備註：<input id="a7"><br/>
+  <button id="b">儲存</button>
 </body>
 </html>
