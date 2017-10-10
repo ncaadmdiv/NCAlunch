@@ -1,80 +1,29 @@
 <!DOCTYPE html>
-<html>
-		<head>
-		  <meta charset="utf-8">
-		  <title>DinBenDon</title>
-		  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		  <script type="text/javascript">
-			  $(function() {
-			  var $a1 = $('#a1'),
-			    $a2 = $('#a2'),
-			    $a3 = $('#a3'),
-			    $a4 = $('#a4'),
-			    $a5 = $('#a5'),
-			    $a6 = $('#a6'),
-				$a7 = $('#a7'),	    
-			    $b = $('#b'),
-			    a = {};
-			    $b.on('click', function() {
-			    a = {
-			        data: $a1.val()+','+ $a2.val()+','+$a3.val()+','+$a4.val()+','+$a5.val()+','+$a6.val()+','+$a7.val(),
-			        sheetUrl: 'https://docs.google.com/spreadsheets/d/1SFq7TDx2I9jeJu2vcZDcoPQu1vlflWUWQYn2Updvt38/edit#gid=0',
-			        sheetTag: '工作表1'
-			    };
-			    console.log(a);
-			    $.get('https://script.google.com/macros/s/AKfycbwSECPR4Hnpj-k94OAv_q5vRgk8BVP4oD2blX7JBr4NqQRZ1UNo/exec', a);
-			  });
-			});
-			</script>
-		</head>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="EdieLei" />
+<title>HTML5 图片上传预览</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('#img').change(function(){
+        var file = this.files[0];    //选择上传的文件
+        var r = new FileReader();
+        r.readAsDataURL(file);    //Base64
+        $(r).load(function(){
+            $('div').html('<img src="'+ this.result +'" alt="" />');
+        });
+    });
+});
+</script>
+</head>
 <body>
-<h1>役政署訂餐系統</h1>
-<!--<p>I'm hosted with GitHub Pages.</p>-->
-<!--<img src=""></img></br>-->
-  科室：<select id="a5">
-<option value="署本部"><big>署本部</big></option>
-<option value="秘書室"><big>秘書室</big></option>
-<option value="研考科"><big>研考科</big></option>
-<option value="文書科"><big>文書科</big></option>
-<option value="公關科"><big>公關科</big></option>
-<option value="資訊科"><big>資訊科</big></option>
-<option value="事務科"><big>事務科</big></option>
-<option value="人事室"><big>人事室</big></option>
-<option value="政風室"><big>政風室</big></option>
-<option value="主計室"><big>主計室</big></option>
-<option value="徵集組"><big>徵集組</big></option>
-<option value="配賦科"><big>配賦科</big></option>
-<option value="兵源科"><big>兵源科</big></option>
-<option value="體檢科"><big>體檢科</big></option>
-<option value="資訊科"><big>資訊科</big></option>
-<option value="徵集組"><big>徵集組</big></option>
-<option value="法制科"><big>法制科</big></option>
-<option value="徵選組"><big>徵選組</big></option>
-<option value="審議科"><big>審議科</big></option>
-<option value="管理組"><big>管理組</big></option>
-<option value="管理組(北)"><big>管理組(北)</big></option>
-<option value="管理組(中)"><big>管理組(中)</big></option>
-<option value="管理組(東)"><big>管理組(東)</big></option>
-<option value="管理組(南)"><big>管理組(南)</big></option>
-<option value="管理組(輔)"><big>管理組(輔)</big></option>
-<option value="管理組(規)"><big>管理組(規)</big></option>
-<option value="權益科"><big>權益科</big></option>
-<option value="後勤科"><big>後勤科</big></option>
-<option value="保險科"><big>保險科</big></option>
-</select>
-  訂購人：<input id="a6"><br/>
-  廠商：<input id="a1"><br/> 
-  樣式：<input id="a2"><br/>
-  數量：<input id="a3"><br/>
-  單價：<input id="a4"><br/>
+<h3>HTML5 图片上传预览</h3>
+<input id="img" type="file" accept="image/*" /><br />
+<div></div>
 
-
-
-
- <!-- 科室：<input id="a5"><br/>-->
-
-  備註：<input id="a7"><br/>
-  <button id="b">儲存</button>
+<hr>
+<input type="text" mode="">	
 </body>
 </html>
